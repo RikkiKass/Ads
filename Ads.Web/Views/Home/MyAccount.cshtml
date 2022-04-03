@@ -1,0 +1,28 @@
+﻿@model List<Ad>
+@using Ads.Data
+
+@foreach (Ad ad in Model)
+{
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="jumbotron">
+                <h5>Listed by @ad.UserName</h5>
+                <h5>Listed on @ad.DateSubmitted</h5>
+                <h5>Phone Number: @ad.PhoneNumber</h5>
+                <h3>Details:</h3>
+                <p>@ad.Text</p>
+
+               
+                    <form method="post" action="/home/deletead">
+                        <input type="hidden" name="id" value=@ad.Id />
+                        <button class="btn btn-danger">Delete</button>
+                    </form>
+                
+
+            </div>
+        </div>
+
+    </div>
+}
+
+

@@ -1,0 +1,28 @@
+﻿@model HomeViewModel
+@using Ads.Data
+
+    @foreach (AdViewModel ad in Model.Ads)
+    {
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="jumbotron">
+                    <h5>Listed by @ad.Ad.UserName<h5>
+                    <h5>Listed on @ad.Ad.DateSubmitted</h5>
+                    <h5>Phone Number: @ad.Ad.PhoneNumber</h5>
+                    <h3>Details:</h3>
+                    <p>@ad.Ad.Text</p>
+                    @if (ad.CanDelete)
+                    {
+                        <form method="post" action="/home/deletead">
+                            <input type="hidden" name="id" value=@ad.Ad.Id />
+                            <button class="btn btn-danger">Delete</button>
+                        </form>
+                    }
+
+                </div>
+            </div>
+
+        </div>
+    }
+
+

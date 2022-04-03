@@ -1,0 +1,22 @@
+﻿@model LoginViewModel
+@if (!String.IsNullOrEmpty(Model.Message))
+{
+<div class="col-md-12">
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @Model.Message
+       
+    </div>
+</div>
+}
+
+<div class="col-md-6 offset-md-3 jumbotron">
+    <h1>Login!</h1>
+    <form method="post" action="/account/login">
+        <input type="text" class="form-control" name="email" placeholder="Email" />
+        <br />
+        <input type="password" class="form-control" name="password" placeholder="Password" />
+        <br />
+        <button class="btn btn-primary btn-block btn-lg">Login</button>
+        <a href="/account/signup">Don't have an account? Sign up here!</a>
+    </form>
+</div>
